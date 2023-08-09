@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+<h1>賃貸情報</h1>
+<p>
+  <strong>物件名:</strong>
+  <%= @house.house_name %>
+</p>
+
+<p>
+  <strong>賃料:</strong>
+  <%= @house.rent %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @house.address %>
+</p>
+
+<p>
+  <strong>築年数:</strong>
+  <%= @house.house_age %>年
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @house.remarks %>
+</p>
+
+<% if @house.stations.present?%>
+  <% @house.stations.each_with_index do |station,idx|%>
+    <h2>
+      <strong>最寄駅<%= idx +1 %></strong>
+    </h2>
+    <p>
+      <strong>路線名:</strong>
+      <%= station.line_name %>
+    </p>
+
+    <p>
+      <strong>駅名:</strong>
+      <%= station.near_station_name %>
+    </p>
+
+    <p>
+      <strong>徒歩:</strong>
+      <%= station.walk %>分
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    <strong>最寄駅:なし</strong>
+  </p>
+<% end %>
+
+
+
+
+<%= link_to 'Edit', edit_house_path(@house) %> |
+<%= link_to 'Back', houses_path %>

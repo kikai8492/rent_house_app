@@ -1,0 +1,26 @@
+
+<h1>最寄駅1</h1>
+<%= form_with(model: @station, local:true) do |form| %>
+  <% if @station.errors.any? %>
+    <% @station.errors.full_messages.each do |message|%>
+      <li><%= message %><li>
+    <% end %>
+  <% end %>
+  <div class = "line_name">
+    <%= form.label :line_name,"路線名" %>
+    <%= form.text_field :line_name %>
+  </div>
+
+  <div class = "station_name">
+    <%= form.label :station_name,"駅名" %>
+    <%= form.text_field :station_name %>
+  </div>
+
+  <div class = "walk">
+    <%= form.label :walk,"徒歩" %>
+    <%= form.text_field :walk %>
+  </div>
+
+
+<% end %>
+
